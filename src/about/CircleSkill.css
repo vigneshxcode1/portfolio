@@ -1,0 +1,14 @@
+/* ── CircleSkill ── */
+.circle-skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.circle-skill__label {
+  color: #888;
+  font-size: 13px;
+  font-family: var(--font-body);
+  text-align: center;
+}
