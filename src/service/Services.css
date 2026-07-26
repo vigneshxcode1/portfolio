@@ -34,18 +34,23 @@
 
 /* Card */
 .services__card {
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
   padding: 44px 32px;
   text-align: center;
-  transition: border-color 0.3s, transform 0.3s;
+  transition: border-color 0.3s, transform 0.3s, background 0.3s, box-shadow 0.3s;
   cursor: default;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 .services__card:hover {
-  border-color: var(--orange);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
   transform: translateY(-6px);
+  box-shadow: 0 12px 40px 0 rgba(255, 255, 255, 0.05);
 }
 
 .services__card-icon {

@@ -318,8 +318,8 @@ export default function Hero({ onNavClick }) {
             </div>
 
             <div className="hero__stats reveal-fade stagger-5" style={{ transition: 'opacity 0.15s ease-out' }}>
-              {STATS.map(({ num, label, bg }, idx) => (
-                <div key={label} className={`hero__stat reveal-fade stagger-${idx + 1}`} style={{ background: bg }}>
+              {STATS.map(({ num, label }, idx) => (
+                <div key={label} className={`hero__stat reveal-fade stagger-${idx + 1}`}>
                   <div className="hero__stat-num">{num}</div>
                   <div className="hero__stat-label">{label}</div>
                 </div>

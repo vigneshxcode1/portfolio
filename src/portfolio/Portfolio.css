@@ -30,23 +30,26 @@
 }
 
 .portfolio__filter-btn {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.03);
   color: #aaa;
-  border: 1.5px solid #333;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   padding: 9px 22px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
   font-size: 13px;
   font-family: var(--font-display);
-  transition: all 0.25s;
+  transition: all 0.3s ease;
 }
 
 .portfolio__filter-btn--active,
 .portfolio__filter-btn:hover {
-  background: var(--orange);
+  background: rgba(255, 255, 255, 0.15);
   color: #fff;
-  border-color: var(--orange);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 /* ── Cards grid ── */
@@ -61,15 +64,19 @@
   border-radius: 12px;
   overflow: hidden;
   height: 250px;
-  border: 1px solid var(--border);
-  background: var(--card);
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
 .portfolio__card:hover {
   transform: translateY(-6px);
-  border-color: var(--orange);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
 .portfolio__card-img {

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap');
 
 :root {
-  --orange: #4C8CE4;
+  --orange: #ffffff;
   --bg: #0e0e0e;
   --card: #161616;
   --card2: #1a1a1a;
@@ -33,6 +33,7 @@ body {
 ::-webkit-scrollbar {
   width: 4px;
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--orange);
   border-radius: 10px;
@@ -55,8 +56,8 @@ select option {
 .reveal-scale {
   opacity: 0;
   will-change: transform, opacity;
-  transition: opacity 1.0s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              transform 1.0s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: opacity 1.0s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 1.0s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .reveal-fade {
@@ -85,9 +86,26 @@ select option {
 }
 
 /* Cascade/Stagger delays for list animations */
-.stagger-1 { transition-delay: 0.1s; }
-.stagger-2 { transition-delay: 0.2s; }
-.stagger-3 { transition-delay: 0.3s; }
-.stagger-4 { transition-delay: 0.4s; }
-.stagger-5 { transition-delay: 0.5s; }
-.stagger-6 { transition-delay: 0.6s; }
+.stagger-1 {
+  transition-delay: 0.1s;
+}
+
+.stagger-2 {
+  transition-delay: 0.2s;
+}
+
+.stagger-3 {
+  transition-delay: 0.3s;
+}
+
+.stagger-4 {
+  transition-delay: 0.4s;
+}
+
+.stagger-5 {
+  transition-delay: 0.5s;
+}
+
+.stagger-6 {
+  transition-delay: 0.6s;
+}

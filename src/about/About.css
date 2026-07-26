@@ -32,27 +32,30 @@
 
 /* ── Profile card ── */
 .about__profile-card {
-  background: linear-gradient(145deg, #1c1c1c, #111);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-radius: 16px;
   width: 100%;
   max-width: 420px;
   aspect-ratio: 3 / 4;
   /* Fits portrait layout perfectly and scales dynamically */
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   margin: 0 auto;
 }
 
 .about__profile-card:hover {
   transform: scale(1.02) translateY(-6px);
-  border-color: var(--orange);
-  box-shadow: 0 20px 45px rgba(76, 140, 228, 0.20);
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 45px rgba(255, 255, 255, 0.08);
 }
 
 .about__profile-img {
@@ -93,9 +96,11 @@
 }
 
 .about__cv-btn {
-  background: var(--orange);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #fff;
-  border: none;
   padding: 13px 30px;
   border-radius: 6px;
   font-weight: 700;
@@ -105,11 +110,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: opacity 0.2s;
+  transition: all 0.3s ease;
 }
 
 .about__cv-btn:hover {
-  opacity: 0.85;
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 /* ── Skills ── */
