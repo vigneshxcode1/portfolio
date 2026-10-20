@@ -5,7 +5,10 @@ import "./Footer.css";
 export default function Footer({ onNavClick }) {
   return (
     <footer className="footer">
-      <span className="footer__logo">vignesh portfolio</span>
+      <div className="footer__logo" onClick={() => onNavClick("home")}>
+        <span>vignesh</span>
+        <span className="footer__logo-dot">.dev</span>
+      </div>
 
       {/* Nav links */}
       <nav className="footer__nav">
@@ -29,13 +32,18 @@ export default function Footer({ onNavClick }) {
 
       {/* Contact info */}
       <div className="footer__contact-info">
-        <a href="mailto:vvigneshwaran518@gmail.com">
-          ✉ vvigneshwaran518@gmail.com
+        <a href="mailto:vvigneshwaran518@gmail.com" className="footer__contact-link">
+          <span>✉ vvigneshwaran518@gmail.com</span>
         </a>
-        <a href="tel:+917338821735">📞 +91 7338821735</a>
+        <a href="tel:+917338821735" className="footer__contact-link">
+          <span>📞 +91 7338821735</span>
+        </a>
       </div>
 
-    
+      {/* Copyright */}
+      <div className="footer__copyright">
+        © {new Date().getFullYear()} Vigneshwaran S. Crafted with modern web & mobile technologies.
+      </div>
     </footer>
   );
 }
