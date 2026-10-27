@@ -4,6 +4,54 @@
   position: relative;
   z-index: 2;
   background: #0e0e0e;
+  overflow: hidden;
+}
+
+/* ── Ribbons Background ── */
+.about__ribbons-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: auto;
+  opacity: 0.85;
+  overflow: hidden;
+}
+
+.about__ribbons-bg > div {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+.about__ribbons-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+      ellipse 85% 65% at 50% 50%,
+      rgba(14, 14, 14, 0.25) 0%,
+      rgba(14, 14, 14, 0.75) 60%,
+      #0e0e0e 100%
+    ),
+    linear-gradient(
+      to bottom,
+      #0e0e0e 0%,
+      transparent 15%,
+      transparent 85%,
+      #0e0e0e 100%
+    );
+}
+
+.about__header,
+.about__body,
+.about__skills-section {
+  position: relative;
+  z-index: 2;
 }
 
 .about__header {
@@ -57,8 +105,8 @@
   -webkit-backdrop-filter: blur(16px);
   border-radius: 20px;
   width: 100%;
-  max-width: 400px;
-  aspect-ratio: 3 / 4;
+  max-width: 380px;
+  aspect-ratio: 4 / 5;
   border: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: center;
@@ -80,7 +128,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center 20%;
   border-radius: 20px;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   display: block;
@@ -92,15 +140,15 @@
 
 .about__card-badge {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
   padding: 10px 16px;
   border-radius: 12px;
-  background: rgba(14, 14, 14, 0.8);
+  background: rgba(14, 14, 14, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -108,6 +156,7 @@
   font-weight: 700;
   color: #fff;
   font-family: var(--font-display);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .about__card-badge-dot {
@@ -141,19 +190,37 @@
 }
 
 .about__highlight-card {
-  padding: 16px;
-  border-radius: 12px;
+  padding: 16px 18px;
+  border-radius: 14px;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.about__highlight-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0%;
+  background: linear-gradient(180deg, #bf4682, #6366f1);
+  transition: height 0.3s ease;
 }
 
 .about__highlight-card:hover {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(191, 70, 130, 0.4);
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.about__highlight-card:hover::before {
+  height: 100%;
 }
 
 .about__highlight-title {
@@ -204,6 +271,17 @@
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(191, 70, 130, 0.5);
   color: #fff;
+}
+
+/* Social links in About */
+.about__socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.about__socials > div {
+  display: inline-flex;
 }
 
 /* ── Interactive Skills Section ── */

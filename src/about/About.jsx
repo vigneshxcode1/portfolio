@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
 import "./About.css";
 import heroimg from "../assets/heroimg3.jpeg";
-import SocialIcon from "../home/SocialIcon";
+import SocialIcon from "../icons/SocialIcon";
+import InterferenceRibbons from "../components/ui/interference-ribbons";
 
 const TECH_SKILLS = [
   { name: "React.js / Next.js", pct: 95, category: "Frontend" },
@@ -39,6 +40,30 @@ export default function About() {
 
   return (
     <section id="about" className="about">
+      {/* ── Background Interference Ribbons ── */}
+      <div className="about__ribbons-bg">
+        <InterferenceRibbons
+          colors={["#bf4682", "#6366f1"]}
+          backgroundColor="#0e0e0e"
+          wires={54}
+          lineWidth={1.3}
+          ribbonWidth={0.32}
+          amplitude={0.5}
+          waveLength={1.2}
+          angle={28}
+          twist={1.4}
+          curl={0.22}
+          glow={0.5}
+          intensity={0.9}
+          speed={0.5}
+          spin={0.2}
+          interactive={true}
+          hoverPulses={true}
+          clickPulse={true}
+          quality={1}
+        />
+      </div>
+
       <div className="about__header reveal-fade">
         <span className="about__pre-badge">GET TO KNOW ME</span>
         <h2 className="about__title">About Me</h2>
@@ -110,7 +135,7 @@ export default function About() {
             </a>
 
             {/* Social Links */}
-            <div className="hero__socials" style={{ margin: 0 }}>
+            <div className="about__socials">
               {["in", "Be", "Dr", "Ig"].map((s, idx) => (
                 <div key={s} className={`reveal-fade stagger-${idx + 1}`}>
                   <SocialIcon label={s} />
