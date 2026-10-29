@@ -10,7 +10,9 @@ export default function Portfolio() {
   const filtered =
     activeCat === "All"
       ? PROJECTS
-      : PROJECTS.filter((p) => p.cat === activeCat);
+      : PROJECTS.filter((p) =>
+          Array.isArray(p.cat) ? p.cat.includes(activeCat) : p.cat === activeCat
+        );
 
   // Close modal on ESC key
   useEffect(() => {
@@ -53,7 +55,9 @@ export default function Portfolio() {
           const count =
             cat === "All"
               ? PROJECTS.length
-              : PROJECTS.filter((p) => p.cat === cat).length;
+              : PROJECTS.filter((p) =>
+                  Array.isArray(p.cat) ? p.cat.includes(cat) : p.cat === cat
+                ).length;
           return (
             <button
               key={cat}
@@ -69,13 +73,14 @@ export default function Portfolio() {
 
       {/* ── Cards grid ── */}
       <div className="portfolio__grid">
-        {filtered.map(({ name, cat, img, desc, link }, i) => {
+        {filtered.map(({ name, cat, img, desc, tags, link }, i) => {
           const coord = cardMouse[i] || { x: 100, y: 100 };
+          const displayCat = Array.isArray(cat) ? cat.join(" • ") : cat;
           return (
             <div
               key={name}
               className={`portfolio__card reveal-scale stagger-${(i % 3) + 1}`}
-              onClick={() => setSelectedProject({ name, cat, img, desc, link })}
+              onClick={() => setSelectedProject({ name, cat, img, desc, tags, link })}
               onMouseMove={(e) => handleCardMouseMove(i, e)}
               style={{
                 "--mouse-x": `${coord.x}px`,
@@ -105,8 +110,17 @@ export default function Portfolio() {
 
               <div className="portfolio__overlay">
                 <div className="portfolio__card-name">{name}</div>
-                <div className="portfolio__card-cat">{cat}</div>
+                <div className="portfolio__card-cat">{displayCat}</div>
                 <p className="portfolio__card-desc">{desc}</p>
+                {tags && (
+                  <div className="portfolio__card-tags">
+                    {tags.slice(0, 3).map((tag) => (
+                      <span key={tag} className="portfolio__card-tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 <div className="portfolio__card-cta">
                   <span>Explore Project →</span>
                 </div>
@@ -143,9 +157,23 @@ export default function Portfolio() {
             </div>
 
             <div className="portfolio__modal-body">
-              <span className="portfolio__modal-cat">{selectedProject.cat}</span>
+              <span className="portfolio__modal-cat">
+                {Array.isArray(selectedProject.cat)
+                  ? selectedProject.cat.join(" • ")
+                  : selectedProject.cat}
+              </span>
               <h3 className="portfolio__modal-title">{selectedProject.name}</h3>
               <p className="portfolio__modal-desc">{selectedProject.desc}</p>
+
+              {selectedProject.tags && (
+                <div className="portfolio__modal-tags">
+                  {selectedProject.tags.map((tag) => (
+                    <span key={tag} className="portfolio__modal-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
 
               <div className="portfolio__modal-footer">
                 <a

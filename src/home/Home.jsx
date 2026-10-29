@@ -11,7 +11,7 @@ const ROLES = [
 
 const STATS = [
   { num: "1+", label: "Years Experience", bg: "rgba(255, 255, 255, 0.03)" },
-  { num: "6+", label: "Projects Completed", bg: "rgba(255, 255, 255, 0.03)" },
+  { num: "8+", label: "Projects Completed", bg: "rgba(255, 255, 255, 0.03)" },
   { num: "100%", label: "Client Satisfaction", bg: "rgba(255, 255, 255, 0.03)" },
 ];
 
